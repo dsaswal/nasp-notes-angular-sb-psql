@@ -14,7 +14,10 @@ import jakarta.persistence.Version;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Note {
     private static final Logger logger = LoggerFactory.getLogger(Note.class);
     @Id
@@ -126,3 +129,4 @@ public class Note {
 
     
 }
+
