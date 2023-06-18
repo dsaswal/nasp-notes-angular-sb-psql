@@ -1,0 +1,28 @@
+<configuration>
+    <property name="log.dir" value="$HOME/logs/naspv1" />
+    <property scope="system" name="logDir" value="${HOME}" />
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="root_file" class="ch.qos.logback.core.FileAppender">
+        <file>${logDir}/logs/naspv1/root.log</file>
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="hibernate_trace_file" class="ch.qos.logback.core.FileAppender">
+        <file>${logDir}/logs/naspv1/hibernate.log</file>
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="logging.level.org.hibernate" level="TRACE">
+        <appender-ref ref="hibernate_file" />
+    </logger>
+    <root level="debug">
+        <appender-ref ref="root_file" />
+    </root>
+</configuration>
