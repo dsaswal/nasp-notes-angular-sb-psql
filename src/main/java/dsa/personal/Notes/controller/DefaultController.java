@@ -33,7 +33,7 @@ public class DefaultController {
         return "error";
     }
 
-        @GetMapping("/notes")
+    @GetMapping("/notes")
     public String getAllNotes(Model model, @RequestParam(required = false) String title) {
         logger.debug("In getAllNotes");
         List<Note> notes = new ArrayList<Note>();
