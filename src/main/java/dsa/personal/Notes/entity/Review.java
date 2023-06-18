@@ -7,10 +7,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Entity
 public class Review {
-
+    private static final Logger logger = LoggerFactory.getLogger(Review.class);
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)   
     private Long id;

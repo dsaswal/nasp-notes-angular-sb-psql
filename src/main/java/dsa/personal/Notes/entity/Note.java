@@ -11,10 +11,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Version;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Entity
 public class Note {
-    
+    private static final Logger logger = LoggerFactory.getLogger(Note.class);
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;

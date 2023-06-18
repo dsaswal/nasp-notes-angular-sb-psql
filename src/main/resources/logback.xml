@@ -13,8 +13,14 @@
             <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
-    <appender name="hibernate_trace_file" class="ch.qos.logback.core.FileAppender">
+    <appender name="hibernate_file" class="ch.qos.logback.core.FileAppender">
         <file>${logDir}/logs/naspv1/hibernate.log</file>
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="hikari_file" class="ch.qos.logback.core.FileAppender">
+        <file>${logDir}/logs/naspv1/hikari.log</file>
         <encoder>
             <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
@@ -22,6 +28,9 @@
     <logger name="logging.level.org.hibernate" level="TRACE">
         <appender-ref ref="hibernate_file" />
     </logger>
+    <logger name="com.zaxxer.hikari.pool.HikariPool" level="INFO">
+        <appender-ref ref="hikari_file" />
+    </logger>    
     <root level="debug">
         <appender-ref ref="root_file" />
     </root>
