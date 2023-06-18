@@ -18,6 +18,9 @@
 <body>
   <div th:replace="fragments/header :: header"></div>
 
+    <div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
+    <h2 class="text-center">Tutorials</h2>
+
   <div th:if="${message != null}" class="alert alert-success alert-dismissible fade show text-center message"
   role="alert">
   [[${message}]]
@@ -31,8 +34,8 @@
       <div class="row d-flex">
         <div class="col-md-6 mt-2">
           <div class="search">
-            <i class="fa fa-search"></i>
-            <input id="keyword" type="search" name="keyword" th:value="${keyword}" required class="form-control"
+	  <i class="fa fa-search"></i>
+            <input id="keyword" type="search" name="title" th:value="${keyword}" required class="form-control"
               placeholder="Enter keyword">
             <button type="submit" class="btn btn-secondary">Search</button>
           </div>
@@ -53,7 +56,6 @@
         <th scope="col">Details</th>
         <th scope="col">Created</th>
         <th scope="col">Last Modified</th>
-        <th scope="col">See the check box</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -64,12 +66,6 @@
         <td>[[${note.details}]]</td>
         <td>[[${note.createdTime}]]</td>
         <td>[[${note.lastModifiedTime}]]</td>
-        <td>
-          <a th:if="${true == true}" class="fa-regular fa-square-check"
-            th:href="@{'/notes/' + ${note.id} + '/published/false'}" title="Disable this note"></a>
-          <a th:if="${true == false}" class="fa-regular fa-square icon-dark"
-            th:href="@{'/notes/' + ${note.id} + '/published/true'}" title="Enable this note"></a>
-        </td>
         <td>
           <a th:href="@{'/notes/' + ${note.id}}" title="Edit this note"
             class="fa-regular fa-pen-to-square icon-dark"></a>          
