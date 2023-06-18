@@ -13,5 +13,5 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
 
     List<Note> findByTagId(Integer tagId);
 
-    List<Note> findByQBE(Note note);
+    // List<Note> findByQBE(Note note);
 }
